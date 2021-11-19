@@ -139,3 +139,5 @@ eval
 Toolchain
 pdf()
 (?i)cpu
+(?i)chai
+(?i)chaijs

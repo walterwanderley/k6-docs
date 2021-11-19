@@ -5,8 +5,7 @@ description: 'Global configuration options for k6Chaijs'
 excerpt: 'Global configuration options for k6Chaijs'
 ---
 
-
-There are number of configuration options that can change how k6chaijs behaves. 
+Chai exposes a number of configuration options that can change how the library behaves.
 
 
 | Config option             | Default     | Description |
@@ -38,11 +37,10 @@ chai.config.aggregateChecks = false;
 chai.config.logFailures = true;
 
 export default function testSuite() {
-
   describe('Testing bad assertion.', () => {
-    let response = http.get("https://test-api.k6.io/")
+    const response = http.get('https://test-api.k6.io/');
 
-    expect(response.body).to.have.lengthOf.at.least(500)
+    expect(response.body).to.have.lengthOf.at.least(500);
   });
 }
 ```

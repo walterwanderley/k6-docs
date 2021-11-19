@@ -45,9 +45,9 @@ import http from 'k6/http';
 
 export default function testSuite() {
   describe('Basic API test', () => {
-    let response = http.get("https://test-api.k6.io/public/crocodiles")
-    expect(response.status, "API status code").to.equal(200);
-  })
+    const response = http.get('https://test-api.k6.io/public/crocodiles');
+    expect(response.status, 'API status code').to.equal(200);
+  });
 }
 ```
 
@@ -78,13 +78,12 @@ import http from 'k6/http';
 import { describe, expect } from 'https://jslib.k6.io/k6chaijs/4.3.4.1/index.js';
 
 export default function testSuite() {
-
   describe('Fetch a list of public crocodiles', () => {
-    let response = http.get("https://test-api.k6.io/public/crocodiles")
+    const response = http.get('https://test-api.k6.io/public/crocodiles');
 
-    expect(response.status, "response status").to.equal(200)
-    expect(response).to.have.validJsonBody()
-    expect(response.json().length, "number of crocs").to.be.above(4);
+    expect(response.status, 'response status').to.equal(200);
+    expect(response).to.have.validJsonBody();
+    expect(response.json().length, 'number of crocs').to.be.above(4);
   });
 }
 ```
@@ -100,7 +99,7 @@ The above script should result in the following being printed after execution:
   ✓ expected number of crocs to be above 4
 ```
 
-When the status code isn't 200, the remaining two calls to `expect()` are ommitted and the the result looks like this.
+When the status code isn't 200, the remaining two calls to `expect()` are omitted and the result looks like this.
 
 ```bash
 █ Fetch a list of public crocodiles
@@ -114,7 +113,7 @@ More advanced examples can be found in the [examples section](/examples/function
 
 ## Configuration
 
-There are number of configuration options that can change how k6chaijs behaves. See [configuration](./k6chaijs/configuration).
+Chai exposes a number of configuration options that can change how the library behaves. See [configuration](./k6chaijs/configuration).
 
 ## Plugins
 
